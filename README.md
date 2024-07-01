@@ -93,23 +93,165 @@ html{
 
 ## 3.jsp
 ### jspの書き方
-スクリプトレット・スクリプト式
+スクリプトレット・スクリプト式・EL式
 ``` jsp
-<%-- スクリプトレット -->
+<!-- スクリプトレット -->
 <%
   int num = 1;
 %>
-<%-- スクリプト式 -->
+<!-- スクリプト式 -->
 <p><%= num %></p>
+<!-- EL式(繰り返しでは使えない) -->
+<p>${hoge.name}</p>
+<p>${hogeList[0].name}</p>
 ```
 pageディレクティブ
 ``` jsp
-<%@ page contentType="text/html"; charset="UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 
 ```
+
+forward・redirect
+``` jsp
+request.getRequestDispatcher("index2.jsp").forward(request, response);
+response.sendRedirect("index3.jsp");
+```
+
+scope
+``` java
+// requestScope(一往復まで情報を保持)
+request.setAttribute("key", "value");
+Hoge hoge = (Hoge) request.getAttribute("key");
+// sessionScope(個人のアプリケーションの情報を保持)
+HttpSession session = request.getSession();
+session.setAttribute("key", "value");
+Hoge hoge = (Hoge) session.getAttribute("key");
+session.removeAttribute("key");
+session.invalidate();
+// applicationScope(全員のアプリケーションの情報を保持)
+ServletContext context = this.getServletContext();
+application.setAttribute("key", "value");
+Hoge hoge = (Hoge) application.getAttribute("key");
+application.removeAttribute("key");
+```
+
+init・destroy
+```java
+public void init(ServletConfig config) throws ServletException {
+  super.init(config);
+    // 初期化処理
+}
+public void destroy() {
+    // 終了処理
+}
+```
+Listener・Filter
+```java
+@WebListener
+public class HogeListener implements ServletContextListener {
+  public void contextInitialized(ServletContextEvent sce) {}
+  public void contextDestroyed(ServletContextEvent sce) {}
+}
+@WebFilter("/Hoge/*")
+public class HogeFilter implements Filter {
+  public void init(FilterConfig config) {}
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {}
+  public void destroy() {}
+}
+```
+
 include
 ``` jsp
+<!-- 動的include -->
+<% request.getRequestDispatcher().include(request, response); %>
+<jsp:include page="header.jsp"/>
+<!-- 静的include -->
 <%@ include file="header.jsp" %>
 
 ```
+
+taglib(外部ライブラリのインポートが必要)
+``` jsp
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- 安全に変数を出力 -->
+<c:out value="${変数名}" />
+<!-- 条件分岐 -->
+<c:if test="${変数名} == 値">
+  <p>条件が成立</p>
+</c:if>
+<c:choose >
+  <c:when test="${変数名} == 値1">
+    <p>条件が成立</p>
+  </c:when>
+  <c:when test="${変数名} == 値2">
+    <p>条件が成立</p>
+  </c:when>
+  <c:otherwise>
+    <p>条件が成立しない</p>
+  </c:otherwise>
+</c:choose>
+<!-- 繰り返し -->
+<c:forEach var="変数名" begin="開始値" end="終了値" step="増加値">
+  <p>${変数名}</p>
+</c:forEach>
+<c:forEach var="変数名" items="${配列/リスト}" >
+   <p>${変数名}</p>
+</c:forEach>
+```
+
+JDBC(JDBCドライバのインポートが必要)
+``` java
+Class ConnectManager{
+  private final String JDBC_URL = "接続先URL";
+  private final String DB_DRIVER = "ドライバ名";
+  private final String DB_USER = "ユーザー名";
+  private final String DB_PASS = "パスワード";
+  private Connection con;
+
+  public ConnectManager(){
+    try{
+      Class.forName(DB_DRIVER);
+    }catch(ClassNotFoundEception e){
+      throw new IllegalArgumentException("JDBCドライバが見つかりません");
+    }
+
+    try{
+      con = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
+    }catch(SQLException e){
+      throw new IllegalArgumentException("DB接続に失敗しました");
+    }
+  }
+
+  public List<> getList(String sql){
+    try{
+      PreparedStatement pStmt = con.prepareStatement(sql);
+      ResultSet rs = pStmt.executeQuery();
+
+      while(rs.next()){
+        //取得したデータを格納する
+        String s = rs.getString("カラム名");
+        int i = rs.getInt("カラム名");
+      }
+    }catch(SQLException e){
+      e.printStackTrace();
+      return null;
+    }
+    return null;
+
+    public boolean setList(String sql, List<> list){
+    try{
+      // String sql = "INSERT INTO テーブル名 (カラム名,...) VALUES (?,...)";
+      PreparedStatement pStmt = con.prepareStatement(sql);
+      pStmt.setString(1,list.get(0));
+      int result = pStmt.executeUpdate();
+
+      if( result != 1 ){
+        return false;
+       }
+    }catch(SQLException e){
+      e.printStackTrace();
+      return false;
+    }
+    return true;
+}
