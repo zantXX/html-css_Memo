@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="ja">
- <head>
- <meta charset="utf-8">
- <title>サイトタイトル</title>
- <meta name="description" content="ディスクリプションを入力">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="style.css">
- <!-- [if lt IE 9] -->
- <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
- <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
- <!-- [endif] -->
- <script src="main.js"></script>
- </head>
- <body>
- <!----- header----->
- <header>ヘッダー</header>
- <nav>ナビ</nav>
- <!----- /header ----->
- 
- <!----- main ----->
- <article>
- <h1>タイトル</h1>
- <section>
- <h2>見出し２</h2>
- <p>コンテンツの内容</p>
- </section>
- </article>
- <!----- /main ----->
- 
- <!----- footer ----->
- <footer>フッター</footer>
- <!----- /footer ----->
- </body>
+    <head>
+        <meta charset="utf-8">
+        <title>html-css workpage</title>
+        <meta name="description" content="説明を入力">
+        <!----- デバイスフリーにするための見ている範囲の指定----->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <!----- header----->
+        <header>ヘッダー</header>
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                       <td>機能1</td>
+                       <td>機能2</td>
+                       <td>機能3</td>
+                       <td>機能4</td>
+                    </tr>
+                </tbody>
+           </table>
+        </div>
+
+        <nav>
+            <ol>
+                <li class="crumb"><a href="#">Bikes</a></li>
+                <li class="crumb"><a href="#">BMX</a></li>
+                <li class="crumb">Jump Bike 3000</li>
+            </ol>
+        </nav>
+        <!----- /header ----->
+
+        <!----- main ----->
+        <article>
+            <h1>タイトル</h1>
+            <section>
+                <h2>見出し２</h2>
+                <p>コンテンツの内容</p>
+            </section>
+        </article>
+        <!----- /main ----->
+
+        <!----- footer ----->
+        <footer>フッター</footer>
+    <!----- /footer ----->
+    </body>
 </html>
