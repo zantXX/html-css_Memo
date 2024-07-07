@@ -13,7 +13,7 @@
         <!----- header----->
         <header>ヘッダー</header>
         <div>
-            <table>
+            <table border="1px" width="100%">
                 <tbody>
                     <tr>
                        <td>機能1</td>
@@ -45,6 +45,109 @@
 
         <button onclick="location.href='index.html'">送信</button><br>
         <label for="userPassword">パスワード:</label><input type="password" autocomplete="new-password" />
+        <br>
+        <a href="https://qiita.com/sueasen/items/f3e026f35f3b7323a98b">JSP servlet のファイルの受け渡し</a>
+
+
+        <h3>input type一覧(Ctrl+UやCtrl+Shift+Iでコードを参照)</h3>
+        <datalist id="numberList">
+            <option value="10">10</option>
+            <option value="20">20</option>
+             <option value="50">50</option>
+             <option value="100">100</option>
+        </datalist>
+        <form action="index.html" method="get">
+        <table border="1" style="border-collapse: collapse" width="80%">
+            <tr>
+                <th>input type</th>
+                <th> 表示 </th>
+            </tr>
+             <tr>
+                 <td>text</td>
+                 <td><input type="text" name="text"></td>
+             </tr>
+             <tr>
+                 <td>password</td>
+                  <td><input type="password" name="password"></td>
+             </tr>
+             <tr>
+                <td>number</td>
+                 <td><input type="number" name="age"></td>
+             </tr>
+             <tr>
+                 <td>email</td>
+                  <td><input type="email" name="email"></td>
+             </tr>
+              <tr>
+                <td>tel</td>
+                 <td><input type="tel" name="tel"></td>
+              </tr>
+              <tr>
+                <td>url</td>
+                <td><input type="url" name="url"></td>
+              </tr>
+              <tr>
+                 <td>button</td>
+                  <td><input type="button" name="butoon" value="ボタン"></td>
+              </tr>
+              <tr>
+                <td>checkbox</td>
+                 <td><label>labelあり:<input type="checkbox" name="checkboxlabel"></label><br>labelなし:<input type="checkbox" name="checkbox"></td>
+              </tr>
+              <tr>
+                <td>radio</td>
+                <td><label>labelあり:<input type="radio" name="radio" value="labelOn"></label><br>labelなし:<input type="radio" name="radio" value="labelNone"></td>
+              </tr>
+              <tr>
+                <td>color</td>
+                <td> <input type="color" name="color" value="#FF0000"></td>
+              </tr>
+              <tr>
+                <td>month</td>
+                <td><input type="month" name="month" value="2024-08"></td>
+              </tr>
+              <tr>
+                <td>week</td>
+                <td><input type="week" name="week" value="2024-W33"></td>
+              </tr>
+              <tr>
+                <td>date</td>
+                <td><input type="date" name="date" value="2024-08-18"></td>
+              </tr>
+              <tr>
+                <td>datetime-local</td>
+                <td><input type="datetime-local" name="datetime-local" value="2024-08-18T08:30"></td>
+              </tr>
+              <tr>
+                <td>time</td>
+                <td><input type="time" name="time" value="06:30"><br><input type="time" name="timeWithSecond" value="06:30:30"></td>
+              </tr>
+              <tr>
+                <td>file</td>
+                <td><input type="file" name="file" > </td>
+              </tr>
+              <tr>
+                <td>hidden</td>
+                <td><input type="hidden" name="hidden" value="hidden data"></td>
+              </tr>
+              <tr>
+                <td>image</td>
+                <td><input type="image" src="login-button.png" width=100></td>
+              </tr>
+              <tr>
+                <td>range</td>
+                <td><input type="range" name="range" max="100" min="0" value="30" step="10"><br><input type="range" class="verticalRange" list="numberList" name="rangeVertical" max="100" min="0" step="10"></td>
+              </tr>
+              <tr>
+                <td>reset</td>
+                <td><input type="reset"></td>
+              </tr>
+              <tr>
+                <td>submit</td>
+                <td><input type="submit"></td>
+              </tr>
+        </table>
+    </form>
         <!----- /main ----->
 
         <!----- footer ----->

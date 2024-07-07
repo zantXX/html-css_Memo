@@ -100,7 +100,7 @@ cssは、テンプレとして使えるフレームワークが複数存在
 |  ^   |  ^  | formmethod  | 送信する方法を個別で指定(get, post) |  ^  |
 |  ^   |  ^  | form | 関連付けするform idを指定 |  ^  |
 
-input type一覧
+input type一覧（各表示は[ここ](https://zantXX.github.io/html-css_memo)・このREADME.mdをmarkdownを直接開く)
 | input type属性 | アイコン |用途 | 主な属性<br>(*:cssに記述推奨) | 効果 | 備考 |
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | text | <input type="text"> | テキスト入力  | name | 送信される情報のkeyを指定 | [text](https://developer.mozilla.org/ja/docs/Web/HTML/Element/input/text) |
@@ -198,7 +198,7 @@ input type一覧
 | ^  | ^ | ^ | capture | acceptに画像や映像データが指定された場合にどのカメラを使用するか指定 | ^ |
 |   ^   |   ^   |   ^  |multiple   | 複数入力を許可   |   ^   |
 | ^  | ^ | ^ | required | 必須項目として指定 | ^ |
-| hidden  | | 隠しフォーム  | name   | 送信される情報のkeyを指定   |   [hidden](https://developer.mozilla.org/ja/docs/Web/HTML/Element/input/hidden)  |
+| hidden  |<input type="hidden" name="hidden" value="hidden data">| 隠しフォーム  | name   | 送信される情報のkeyを指定   |   [hidden](https://developer.mozilla.org/ja/docs/Web/HTML/Element/input/hidden)  |
 | image  | <input type="image" src="login-button.png" width=100> | 画像  | src   | 送信される情報のkeyを指定   |   [image](https://developer.mozilla.org/ja/docs/Web/HTML/Element/input/image) <br>画像をボタンとして指定できるのみ |
 | ^  | ^ | ^ | alt | 画像に対するラベルを付与  | ^ |
 | ^  | ^ | ^ | height | 画像の高さをピクセル単位で指定  | ^ |
@@ -219,10 +219,16 @@ input type一覧
 ### display
 displayは、画面構成をどのように行うかを指定するものです。
 
+詳しくは以下を参照
+
+https://developer.mozilla.org/ja/docs/Learn/CSS/CSS_layout/Introduction
+
+
+
 種類は主に以下です
 - inline
   - 文字や画像など、
-  - 文章内に続けて横並びに配置するのに使われる
+  - 単語のように文章内に続けて横並びに配置するのに使われる
 - block
 - flow
 - flex
@@ -289,12 +295,16 @@ html{
 よく使うcssプロパティ
 | プロパティ名 | 指定方法 | 備考 | url |
 | ---- | ---- | ---- | ---- |
-| margin | <length>,<percentage>,auto | 0 autoで上下の余白o,左右の余白を自動で決める  | なし  |
-| padding  | <length>,<percentage>,auto  | 0 autoで上下の余白o,左右の余白を自動で決める  | なし  |
-| border  | <width> <style> <color>  | なし  | なし  |
-| color | <color> | なし   | なし   |
-| font-size  | <length>  | なし   | なし   |
-| font-family  |  | なし   | なし   |
+| margin | <length>,<percentage>,auto | ボックス外側の余白。0 autoで上下の余白o,左右の余白を自動で決める  | [margin](https://developer.mozilla.org/ja/docs/Web/CSS/margin)   |
+| padding  | <length>,<percentage>,auto  | ボックス内側の余白。0 autoで上下の余白o,左右の余白を自動で決める  | [padding](https://developer.mozilla.org/ja/docs/Web/CSS/padding)  |
+| border  | <width> <style> <color>  | 境界線の設定。 | [border](https://developer.mozilla.org/ja/docs/Web/CSS/border) |
+| color | <color> | フォントの色指定   | [color](https://developer.mozilla.org/ja/docs/Web/CSS/color)   |
+| font-size  | larger, smaller, ..., <length>, <percentage>  | フォントの大きさを指定 | [font-size](https://developer.mozilla.org/ja/docs/Web/CSS/font-size)   |
+| font-family  | <family-name>, <generic-name> | フォント指定やフォント優先度を設定  | [font-family](https://developer.mozilla.org/ja/docs/Web/CSS/font-family)   |
+|  width | <length>,<percentage>,auto,fit-content   | 要素の幅を設定。100%にすると幅すべてを使う気がする。 | [width](https://developer.mozilla.org/ja/docs/Web/CSS/width)|
+| height | <length>,<percentage>,auto,fit-content    | 要素の高さを設定。100%にすると幅すべてを使う気がする。 | [height](https://developer.mozilla.org/ja/docs/Web/CSS/height)|
+| display | block, inline, flow, ..., | 表示方法を選択 | [display](https://developer.mozilla.org/ja/docs/Web/CSS/display) |
+
 
 ## 3.jsp
 ### jspの書き方
