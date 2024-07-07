@@ -219,11 +219,12 @@ input type一覧（各表示は[ここ](https://zantXX.github.io/html-css_memo)�
 ### display
 displayは、画面構成をどのように行うかを指定するものです。
 
+画面構成を考えるだけなら、ブロックとインラインの違いがわかれば良さそう。
+[ここ](https://www.htmq.com/style/display.shtml)参照
+
 詳しくは以下を参照
 
 https://developer.mozilla.org/ja/docs/Learn/CSS/CSS_layout/Introduction
-
-
 
 種類は主に以下です
 - inline
@@ -235,8 +236,15 @@ https://developer.mozilla.org/ja/docs/Learn/CSS/CSS_layout/Introduction
 - grid
 
 
-右揃え
 
+右揃え
+``` css
+/* 親要素で指定 */
+text-align: right;
+/* 子要素で指定 */
+display: flex;
+justify-content: flex-end;
+```
 
 中央揃え
 ``` css
@@ -248,6 +256,13 @@ display: flex; justify-content: center;
 
 
 左揃え
+``` css
+/* 親要素で指定 */
+text-align: left;
+/* 子要素で指定 */
+display: flex;
+justify-content: flex-start;
+```
 ## 2. CSS
 
 | 指定方法 | cssの書き方 | 制限 |
