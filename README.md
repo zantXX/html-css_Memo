@@ -403,7 +403,9 @@ include
 
 taglib(外部ライブラリのインポートが必要)
 ``` jsp
+<!-- 以下を実行するのに必要 -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!-- 安全に変数を出力 -->
 <c:out value="${変数名}" />
 <!-- 条件分岐 -->
@@ -413,9 +415,9 @@ taglib(外部ライブラリのインポートが必要)
 <c:choose >
   <c:when test="${変数名} == 値1">
     <p>条件が成立</p>
-  </c:when>
+  </c:when><p>${変数名}</p>
   <c:when test="${変数名} == 値2">
-    <p>条件が成立</p>
+    <p>条件が成立</p><p>${変数名}</p>
   </c:when>
   <c:otherwise>
     <p>条件が成立しない</p>
@@ -423,10 +425,10 @@ taglib(外部ライブラリのインポートが必要)
 </c:choose>
 <!-- 繰り返し -->
 <c:forEach var="変数名" begin="開始値" end="終了値" step="増加値">
-  <p>${変数名}</p>
+  <c:out value="${変数名}" />
 </c:forEach>
 <c:forEach var="変数名" items="${配列/リスト}" >
-   <p>${変数名}</p>
+   <c:out value="${変数名}" />
 </c:forEach>
 ```
 
