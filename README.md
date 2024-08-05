@@ -234,7 +234,8 @@ https://developer.mozilla.org/ja/docs/Learn/CSS/CSS_layout/Introduction
 - flow
 - flex
 - grid
-
+- none
+  - 非表示
 
 
 右揃え
@@ -312,7 +313,7 @@ html{
 | ---- | ---- | ---- | ---- |
 | margin | <length>,<percentage>,auto | ボックス外側の余白。0 autoで上下の余白o,左右の余白を自動で決める  | [margin](https://developer.mozilla.org/ja/docs/Web/CSS/margin)   |
 | padding  | <length>,<percentage>,auto  | ボックス内側の余白。0 autoで上下の余白o,左右の余白を自動で決める  | [padding](https://developer.mozilla.org/ja/docs/Web/CSS/padding)  |
-| border  | <width> <style> <color>  | 境界線の設定。 | [border](https://developer.mozilla.org/ja/docs/Web/CSS/border) |
+| border | <width> <style> <color>  | 境界線の設定。 | [border](https://developer.mozilla.org/ja/docs/Web/CSS/border) |
 | color | <color> | フォントの色指定   | [color](https://developer.mozilla.org/ja/docs/Web/CSS/color)   |
 | font-size  | larger, smaller, ..., <length>, <percentage>  | フォントの大きさを指定 | [font-size](https://developer.mozilla.org/ja/docs/Web/CSS/font-size)   |
 | font-family  | <family-name>, <generic-name> | フォント指定やフォント優先度を設定  | [font-family](https://developer.mozilla.org/ja/docs/Web/CSS/font-family)   |
@@ -409,14 +410,14 @@ taglib(外部ライブラリのインポートが必要)
 <!-- 安全に変数を出力 -->
 <c:out value="${変数名}" />
 <!-- 条件分岐 -->
-<c:if test="${変数名} == 値">
+<c:if test="${変数名 == 値}">
   <p>条件が成立</p>
 </c:if>
-<c:choose >
-  <c:when test="${変数名} == 値1">
+<c:choose>
+  <c:when test="${変数名 == 値1}">
     <p>条件が成立</p>
   </c:when><p>${変数名}</p>
-  <c:when test="${変数名} == 値2">
+  <c:when test="${変数名 == 値2}">
     <p>条件が成立</p><p>${変数名}</p>
   </c:when>
   <c:otherwise>
